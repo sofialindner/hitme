@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitMe</title>
+    <link href="style.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="icon" type="imagem/png" href="/assets/logo.png">
+</head>
+<body>
+    <div id="site-background">
+        <header style="height:60px">
+            <h1><a id="logo" href="">HitMe</a></h1>
+            <nav>
+                <ul id="header-menu">
+                    <li class="menu-item"><a href="">HOME</a></li>
+                    <li class="menu-item"><a href="#contato-container">CONTATO</a></li>
+                    <li class="menu-item"><a id="criar-conta-link" href="">CRIAR CONTA</a></li>
+                </ul>
+            </nav>
+        </header><br>
+
+        <div id="home-container">  
+            <div id="slogan">
+                <h2>Let the music hit your heart</h2>
+                <h3 style="font-size: 1.8rem; font-style: italic; color: rgba(255, 255, 255, 0.573)">or hit me baby one more time ♪</h3><br><br>
+                <p style="font-size: 1.6rem">Crie playlists e descubra o ritmo que está dentro de você! Todas as suas músicas favoritas em um único lugar.</p><br><br>
+                <button id="btn-entrar" onclick="location.href = '#login-container'">LOGIN</button>
+                <p class="cadastro">Não possui conta?<a href="" class="cadastro" style="color:rgb(100, 100, 100);">Cadastre-se</a></p>
+            </div><
+        </div>
+
+        <div id="login-container">
+            <h2 class= "div-login">ENTRAR</h2><br>
+            <div class="div-login" id="field-login">
+                <form style="padding:30px; font-size: 1.2rem;">
+                    <label for="femail">E-mail:</label>
+                    <input type="email" id="femail" name="femail" placeholder="seuemail@gmail.com"><br><br>
+                    <label for="fsenha">Senha:</label>
+                    <input type="password" id="fsenha" nome="fsenha" placeholder="Senha de 6 a 8 dígitos"><br><br>
+                    <button id="btn-login">Fazer login</button>
+                </form>
+            </div><br>
+            <p class="cadastro" style="margin-left: 71rem;">Não possui conta?<a href="" class="cadastro">Cadastre-se</a></p>
+        </div>
+    </div>
+    <footer id="contato-container">
+        <h2>CONTATO</h2><br>
+        <p>Authors: Sofia, Giulia, João</p>
+        <p>Telefone: (47) 99999-9999</p>
+        <p>Direitos reservados à Luciana.</p>
+    </footer>
+</body>
+</html>
