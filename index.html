@@ -4,56 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HitMe</title>
-    <link href="style.css" rel="stylesheet" />
+    <link href="/assets/style.css" rel="stylesheet" />
+    <script src="/src/app.js"></script>
 
+    <link rel="icon" type="imagem/png" href="/assets/imgs/logo-maior.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="icon" type="imagem/png" href="/assets/logo.png">
 </head>
 <body>
     <div id="site-background">
         <header style="height:60px">
-            <h1><a id="logo" href="">HitMe</a></h1>
+            <div class="logo" onclick="logoClicked(event)">
+                <a href="/index.html"><img src="/assets/imgs/logo.png" alt="Logo HitMe"></a>
+                <a href="/index.html" style="text-decoration: none"><h1>HitMe</h1></a>
+            </div>
+
             <nav>
                 <ul id="header-menu">
-                    <li class="menu-item"><a href="">HOME</a></li>
-                    <li class="menu-item"><a href="#contato-container">CONTATO</a></li>
-                    <li class="menu-item"><a id="criar-conta-link" href="">CRIAR CONTA</a></li>
+                    <li class="menu-item" style="padding-top: 0.5rem"><a href="/index.html">HOME</a></li>
+                    <li class="menu-item" style="padding-top: 0.5rem"><a href="#contato-container">CONTATO</a></li>
+                    <li class="menu-item" id="criar-conta"><a href="">CADASTRE-SE</a></li>
                 </ul>
             </nav>
-        </header><br>
+        </header>
 
-        <div id="home-container">  
-            <div id="slogan">
+        <div id="home-container">
+            <div id="slogan" class="margin-left">
                 <h2>Let the music hit your heart</h2>
-                <h3 style="font-size: 1.8rem; font-style: italic; color: rgba(255, 255, 255, 0.573)">or hit me baby one more time ♪</h3><br><br>
-                <p style="font-size: 1.6rem">Crie playlists e descubra o ritmo que está dentro de você! Todas as suas músicas favoritas em um único lugar.</p><br><br>
-                <button id="btn-entrar" onclick="location.href = '#login-container'">LOGIN</button>
-                <p class="cadastro">Não possui conta?<a href="" class="cadastro" style="color:rgb(100, 100, 100);">Cadastre-se</a></p>
-            </div><
-        </div>
+                <h3 style="font-size: 1.4rem; font-style: italic; color: rgba(255, 255, 255, 0.573)">or hit me baby one more time ♪</h3><br><br>
+                <p style="font-size: 1.5rem">Crie playlists e descubra o ritmo que está dentro de você! Todas as suas músicas favoritas em um único lugar.</p><br>      
+            </div>
 
-        <div id="login-container">
-            <h2 class= "div-login">ENTRAR</h2><br>
-            <div class="div-login" id="field-login">
-                <form style="padding:30px; font-size: 1.2rem;">
-                    <label for="femail">E-mail:</label>
-                    <input type="email" id="femail" name="femail" placeholder="seuemail@gmail.com"><br><br>
-                    <label for="fsenha">Senha:</label>
-                    <input type="password" id="fsenha" nome="fsenha" placeholder="Senha de 6 a 8 dígitos"><br><br>
-                    <button id="btn-login">Fazer login</button>
-                </form>
-            </div><br>
-            <p class="cadastro" style="margin-left: 71rem;">Não possui conta?<a href="" class="cadastro">Cadastre-se</a></p>
+            <div id="overlay-background">
+                <div id="field-login" class="margin-left">
+                    <form id="form-login">
+                        <label for="fusername">Usuário:</label>
+                        <input type="text" id="fusername" name="fusername" placeholder="Nome de usuário" style="margin-left: 2rem;"><br><br>
+                        <label for="fsenha">Senha:</label>
+                        <input type="password" id="fsenha" nome="fsenha" placeholder="Senha de 6 a 8 dígitos" style="margin-left: 2.7rem"><br><br>
+                        <div style="display: flex; justify-content: space-between">
+                            <div>
+                                <label for="checkbox-show-password" class="lbl-checkbox">
+                                    <input type="checkbox" onclick="showPassword(event)" id="checkbox-show-password" name="checkbox-show-password" />Mostrar senha
+                                </label>
+                                <label for="checkbox-remember" class="lbl-checkbox">
+                                    <input type="checkbox" onclick="verifyPassword(event)" id="checkbox-remember" name="checkbox-remember" />Lembre-me
+                                </label>
+                            </div>
+                            <button id="btn-login" onclick="login(event)">LOGIN</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="margin-left">
+                    <p id="cadastro">Esqueceu a senha?<a href="">Recuperar senha</a></p>
+                </div>
+                <br><br>
+            </div>
         </div>
     </div>
+
     <footer id="contato-container">
-        <h2>CONTATO</h2><br>
-        <p>Authors: Sofia, Giulia, João</p>
-        <p>Telefone: (47) 99999-9999</p>
-        <p>Direitos reservados à Luciana.</p>
+        <div style="width: 35rem">
+            <p style="color: rgba(156, 0, 213, 0.758)">TODOS OS DIREITOS RESERVADOS À EMPRESA</p>
+            <div class="logo" onclick="logoClicked(event)">
+                <a href="/index.html"><img src="/assets/imgs/logo-branca.png" alt="Logo HitMe"></a>
+                <a href="/index.html" style="text-decoration: none"><h1>HitMe</h1></a>
+                <a href="/index.html"><img src="/assets/imgs/copyright-icon.png" alt="Copyright Icon" style="height: 0.8rem; margin-left: 0.6rem; margin-bottom: 1rem"></a>
+            </div>
+            <p>Aplicação web desenvolvida pelos estudantes Giulia Rozza Piai, João Eduardo Cappellari Trevisol e Sofia Sousa Lindner.</p>
+        </div>
+        <div>
+            <h2>CONTATO</h2>
+            <p class="contato-option">
+                <img src="/assets/imgs/whatsapp-icon.png">+55 (47) 99999-9999
+            </p>
+            <p class="contato-option">
+                <img src="/assets/imgs/mail-icon.png">
+                <a href="mailto:hitmeatendimento@gmail.com?subject='">hitmeatendimento@gmail.com</a>
+            </p>
+            <br><br>
+            <h2>SUPORTE E OUVIDORIA</h2>
+            <p class="contato-option">
+                <img src="/assets/imgs/mail-icon.png">
+                <a href="mailto:hitmesuporte@gmail.com?subject='">hitmesuporte@gmail.com</a>
+            </p>
+        </div>
+        <div>
+            <h2>SOCIAL</h2>
+            <div style="display: flex; margin-inline: 0">
+                <img src="/assets/imgs/twitter-icon.png" class="contato-option" style="height: 2.8rem">
+                <img src="/assets/imgs/facebook-icon.png" class="contato-option">
+                <img src="/assets/imgs/instagram-icon.png" class="contato-option">
+            </div>
+        </div>
     </footer>
 </body>
 </html>

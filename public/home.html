@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitMe</title>
+    <link href="/assets/style.css" rel="stylesheet" />
+    <link href="/assets/style-home.css" rel="stylesheet" />
+    <script src="/src/app.js"></script>
+
+    <link rel="icon" type="imagem/png" href="/assets/imgs/logo-maior.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body onload="load()">
+    <div id="page-container">
+        <nav>
+            <div class="logo" onclick="logoClicked(event)">
+                <a href="/public/home.html"><img src="/assets/imgs/logo.png" alt="Logo HitMe" style="height: 2.5rem"></a>
+                <a href="/public/home.html" style="text-decoration: none"><h1 style="font-size: 1.5rem;">HitMe</h1></a>
+            </div>
+            <br><hr style="opacity: 0.4;">
+            <ul id="home-menu">
+                <li class="home-menu-item">
+                    <a href="/index.html"><img src="/assets/imgs/logout-icon.png"><h2>Sair</h2></a>
+                </li>
+                <li class="home-menu-item">
+                    <a href="/public/home.html"><img src="/assets/imgs/create-icon.png"><h2>Criar</h2></a>
+                </li>
+                <li class="home-menu-item">
+                    <a href=""><img src="/assets/imgs/library-icon.png"><h2>Biblioteca</h2></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="user-bar">
+            <img id="user-img" src="/assets/imgs/user-icon.png">
+            <h2 id="username">User</h2>
+            <button id="btn-logout" onclick="window.location.href='/index.html'">Sair</button>
+        </div>
+
+        <div style="display:flex">
+            <form id="barra-pesquisa">
+                <img onclick="searchMusicArtist()" src="/assets/imgs/search-icon.png">
+                <input id="input-pesquisa" type="search" placeholder="Pesquise pela música ou artista">
+            </form>
+            <button id="btn-pesquisar" onclick="searchMusicArtist()">Pesquisar</button>
+            <img id="btn-reload" src="/assets/imgs/reload-icon.png">
+        </div>
+
+        <div id="home-content">
+            <div>
+                <div style="display:flex; justify-content:space-between">
+                    <h2>Faça sua playlist!</h2>
+                    <button id="btn-salvar-playlist" onclick="saveOrEdit(event)"style="display:none">Salvar</button>
+                </div>
+                <br>
+                <button id="btn-newplaylist" onclick="newPlaylist()">Nova playlist</button>
+                <div id="playlist-container">
+                    <br>
+                    <div style="display:flex; justify-content:space-between">
+                        <form id="fnome-playlist" style="margin-top: 1rem"><input type="text" id="nome-playlist" placeholder="Minha Playlist"></form>
+                        <button id="btn-play" onclick="playStop()" class="non-playable">▶</button>
+                    </div>
+                    <p id="playlist-duracao">0min</p>
+                    <br><hr style="margin-left: 2rem; margin-right: 2rem; opacity: 0.4">
+                    <div id="playlist-musics"></div>
+                    <button id="btn-limpar" onclick="clearPlaylist(event)">Limpar</button>
+                </div>
+            </div>
+
+            <div id="musics-container">
+                <div style="display:flex; justify-content:space-between; margin-bottom: 1.2rem">
+                    <h2>Top Hits</h2>
+                    <div style="display:flex">
+                        <button id="btn-concluir" class="hidden" onclick="putMusics()">Concluir</button>
+                        <button id="btn-adicionar" onclick="addMusics()">+</button>
+                    </div>
+                </div>
+                <div id="grid-musics">
+                    <div class="music music-default" id="0">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:48</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/0music.jpg">
+                        <h4 class="mnome">we can't be friends (wait for your love)</h4>
+                        <p class="mcantor">Ariana Grande</p>
+                    </div>
+                    <div class="music music-default" id="1">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">02:39</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/1music.jpg">
+                        <h4 class="mnome">End of Beginning</h4>
+                        <p class="mcantor">Djo</p>
+                    </div>
+                    <div class="music music-default" id="2">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">04:24</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/2music.jpg">
+                        <h4 class="mnome">CARNIVAL</h4>
+                        <p class="mcantor">Kanye West</p>
+                    </div>
+                    <div class="music music-default" id="3">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:42</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/3music.jpg">
+                        <h4 class="mnome">What Was I Made For? [From The Motion Picture "Barbie"]</h4>
+                        <p class="mcantor">Billie Eilish</p>
+                    </div>
+                    <div class="music music-default" id="4">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">02:58</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/4music.jpg">
+                        <h4 class="mnome">Cruel Summer</h4>
+                        <p class="mcantor">Taylor Swift</p>
+                    </div>
+                    <div class="music music-default" id="5">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">02:11</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/5music.jpg">
+                        <h4 class="mnome">greedy</h4>
+                        <p class="mcantor">Tate McRae</p>
+                    </div>
+                    <div class="music music-default" id="6">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:50</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/6music.jpg">
+                        <h4 class="mnome">Starboy</h4>
+                        <p class="mcantor">The Weeknd, Daft Punk</p>
+                    </div>
+                    <div class="music music-default" id="7">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:39</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/7music.jpg">
+                        <h4 class="mnome">vampire</h4>
+                        <p class="mcantor">Olivia Rodrigo</p>
+                    </div>
+                    <div class="music music-default" id="8">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:03</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/8music.jpg">
+                        <h4 class="mnome">I Wanna Be Yours</h4>
+                        <p class="mcantor">Artic Monkeys</p>
+                    </div>
+                    <div class="music music-default" id="9">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:06</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/9music.jpg">
+                        <h4 class="mnome">Saturn</h4>
+                        <p class="mcantor">SZA</p>
+                    </div>
+                    <div class="music music-default" id="10">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">02:17</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/10music.jpg">
+                        <h4 class="mnome">My Love Mine All Mine</h4>
+                        <p class="mcantor">Mitski</p>
+                    </div>
+                    <div class="music music-default" id="11">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:05</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/11music.jpg">
+                        <h4 class="mnome">Houdini</h4>
+                        <p class="mcantor">Dua Lipa</p>
+                    </div>
+                    <div class="music music-default" id="12">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:53</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/12music.jpg">
+                        <h4 class="mnome">TEXAS HOLD 'EM</h4>
+                        <p class="mcantor">Beyoncé</p>
+                    </div>
+                    <div class="music music-default" id="13">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">03:45</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/13music.jpg">
+                        <h4 class="mnome">24K Magic</h4>
+                        <p class="mcantor">Bruno Mars</p>
+                    </div>
+                    <div class="music music-default" id="14">
+                        <div class="mnome-duracao">
+                            <p class="mduracao">07:13</p>
+                            <button type="checkbox" class="btn-selecao"></button>
+                        </div>
+                        <img class="mcapa" src="/assets/capas-musicas/14music.jpg">
+                        <h4 class="mnome">A&W</h4>
+                        <p class="mcantor">Lana Del Rey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="contato-container">
+            <div style="width: 35rem">
+                <p style="color: rgba(156, 0, 213, 0.758)">TODOS OS DIREITOS RESERVADOS À EMPRESA</p>
+                <div class="logo" onclick="logoClicked(event)">
+                    <a href="/index.html"><img src="/assets/imgs/logo-branca.png" alt="Logo HitMe"></a>
+                    <a href="/index.html" style="text-decoration: none"><h1>HitMe</h1></a>
+                    <a href="/index.html"><img src="/assets/imgs/copyright-icon.png" alt="Copyright Icon" style="height: 0.8rem; margin-left: 0.6rem; margin-bottom: 1rem"></a>
+                </div>
+                <p>Aplicação web desenvolvida pelos estudantes Giulia Rozza Piai, João Eduardo Cappellari Trevisol e Sofia Sousa Lindner.</p>
+            </div>
+            <div>
+                <h2>CONTATO</h2>
+                <p class="contato-option">
+                    <img src="/assets/imgs/whatsapp-icon.png">+55 (47) 99999-9999
+                </p>
+                <p class="contato-option">
+                    <img src="/assets/imgs/mail-icon.png">
+                    <a href="mailto:hitmeatendimento@gmail.com?subject='">hitmeatendimento@gmail.com</a>
+                </p>
+                <br><br>
+                <h2>SUPORTE E OUVIDORIA</h2>
+                <p class="contato-option">
+                    <img src="/assets/imgs/mail-icon.png">
+                    <a href="mailto:hitmesuporte@gmail.com?subject='">hitmesuporte@gmail.com</a>
+                </p>
+            </div>
+            <div>
+                <h2>SOCIAL</h2>
+                <div style="display: flex; margin-inline: 0">
+                    <img src="/assets/imgs/twitter-icon.png" class="contato-option" style="height: 2.8rem">
+                    <img src="/assets/imgs/facebook-icon.png" class="contato-option">
+                    <img src="/assets/imgs/instagram-icon.png" class="contato-option">
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

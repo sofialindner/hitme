@@ -1,0 +1,275 @@
+:root {
+    font-size: 1.65vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    color: white;
+}
+
+body {
+    background-color: rgb(30, 32, 37);
+    background-image: linear-gradient(to right, transparent, rgba(0, 98, 244, 0.077));
+}
+
+#site-background {
+    background-image: url("/assets/imgs/home-background.png");
+    background-repeat: no-repeat;
+    background-size: 101rem;
+    background-position-x: right;
+    background-position-y: -4.6rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    background-image: linear-gradient(180deg, rgb(20, 24, 28) 0, rgba(20, 24, 28, .945) 16.56%, rgba(20, 24, 28, .802) 30.85%, rgba(20, 24, 28, .606) 43.77%, rgba(20, 24, 28, .394) 56.23%, rgba(20, 24, 28, .198) 69.15%, rgba(20, 24, 28, .055) 83.44%, rgba(20, 24, 28, 0));
+    background-repeat: repeat-x;
+    padding: 2rem;
+    height: 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 6rem;
+}
+
+.logo img {
+    height: 3.5rem;
+}
+
+.logo h1 {
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2.4rem;
+    margin-left: 1rem;
+}
+
+#header-menu {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.menu-item a {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+}
+
+.menu-item {
+    opacity: 0.6;
+}
+
+.home-menu-item:hover, .menu-item:hover, #criar-conta:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#criar-conta {
+    background-color: rgb(145, 65, 206);
+    margin-left: 1rem;
+    padding: 0.5rem;
+    opacity: 0.7;
+    border: none;
+    border-radius: 2rem;
+    transition: all .2s ease-in-out; 
+}
+
+#criar-conta a {
+    color: black;
+    font-weight: bold;
+}
+
+#criar-conta a:hover {
+    color: white;
+}
+
+#home-container {
+    margin: 0;
+    background: transparent;
+    margin-top: 4rem;
+    font-weight: thin;
+    font-size: 2.3rem;
+    width: 60rem;
+    color:white;
+}
+
+#home-container h2 {
+    font-weight: bold;
+    font-size: 3.2rem;
+    text-align: center;
+}
+
+div.margin-left {
+    margin-left: 8rem;
+    text-align: center;
+}
+
+#overlay-background {
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.133));
+    width: 130.5rem;
+}
+
+#field-login {
+    background-color:rgb(25, 26, 31);
+    box-shadow: rgba(0, 0, 0, 0.258) 4px 3px 3px -1px, rgba(24, 27, 34, 0.093) 2px 3px 5px -5px;
+    color:white;
+    width: 34rem;
+    padding: 1.5rem;
+    border-radius: 1.2rem;
+}
+
+#field-login input {
+    color:black;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    padding-left: 1rem;
+    width: 21.5rem;
+}
+
+#form-login {
+    font-size: 1.2rem;
+}
+
+.lbl-checkbox {
+    display: block;
+    text-align: left;
+    margin-left: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    font-size: 1rem;
+    color:white;
+    opacity: 0.6;
+    transition: 0.4s;
+}
+
+.lbl-checkbox:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+  
+#form-login input[type=checkbox] {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0;
+    margin: 0;
+    margin-right: 1rem;
+    vertical-align: bottom;
+    position: relative;
+    background-color: transparent;
+    border: 0.1rem solid white;
+    border-radius: 0.3rem;
+}
+
+#form-login input[type=checkbox]:checked {
+    background: blueviolet url("/assets/imgs/checkmark-icon.png") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#cadastro {
+    color: white;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    margin: 1rem;
+    text-align: left;
+}
+
+#cadastro a {
+    padding: 1rem;
+    color:rgb(149, 21, 208);
+}
+
+#btn-login {
+    background: linear-gradient(81deg, rgb(221, 182, 26) 20%, rgba(255,115,0,1) 40%, rgb(141, 0, 196) 100%);
+    border-style: none;
+    opacity: 0.8;
+    border-radius: 0.7rem;
+    width: 8rem;
+    height: 3rem;
+    color:black;
+    box-shadow: rgba(0, 0, 0, 0.256) 4px 3px 3px -1px, rgba(24, 27, 34, 0.19) 2px 3px 5px -5px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-right: 1.8rem;
+    transition: 0.4s;
+}
+
+#btn-login:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    color:white;
+}
+
+/* Footer */
+#contato-container {
+    background-color:rgb(25, 26, 31);
+    height: 15rem;
+    padding: 3rem;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+}
+
+#contato-container div {
+    margin-inline: 2.5rem;
+    margin-block: 1.5rem;
+}
+
+#contato-container p, #contato-container h2 {
+    font-size: 1.1rem;
+}
+
+#contato-container h2 {
+    margin-bottom: 0.6rem;
+}
+
+img.contato-option {
+    margin-inline: 0.6rem;
+    height: 3rem;
+}
+
+#contato-container p img {
+    margin-right: 1rem;
+    height: 2rem;
+}
+
+p.contato-option {
+    display: flex;
+}
+
+.contato-option {
+    opacity: 0.5;
+}
+
+.contato-option:hover {
+    opacity: 1;
+}
+
+#contato-container div.logo {
+    margin-inline: 0;
+}
+
+#contato-container div.logo img {
+    height: 2.5rem;
+}
+
+#contato-container div.logo h1 {
+    font-size: 2rem;
+}

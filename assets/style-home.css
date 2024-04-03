@@ -1,0 +1,392 @@
+body {
+    background-color: rgb(30, 32, 37);
+    background-image: none;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    width: auto;
+}
+
+footer {
+    margin-top: 50vh;
+}
+
+button {
+    text-shadow: rgba(0, 0, 0, 0.126) 1px 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.256) 4px 3px 3px -1px, rgba(24, 27, 34, 0.19) 2px 3px 5px -5px;
+    transition: all .2s ease-in-out; 
+}
+
+input:focus {
+    outline: none;
+}
+
+button:hover, #btn-reload:hover {
+    transform: scale(1.1); 
+}
+
+nav {
+    background-color:rgb(25, 26, 31);
+    margin: 0;
+    height: 100vh;
+    width: 9rem;
+    float: left;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow:rgba(0, 0, 0, 0.256) 4px 3px 3px -1px, rgba(24, 27, 34, 0.19) 2px 3px 5px -5px;
+}
+
+.logo {
+    margin: 0;
+}
+
+#home-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.home-menu-item {
+    color:rgb(255, 255, 255);
+    opacity: 0.6;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    transition: 0.4s; 
+}
+
+.home-menu-item a {
+    display: flex;
+    justify-content: left;
+    text-decoration: none;
+}
+
+.home-menu-item a h2 {
+    font-size: 1.1rem;
+}
+
+.home-menu-item img {
+    height: 2.1rem;
+    margin-inline: 0.8rem;
+}
+
+#barra-pesquisa {
+    display: flex;
+    justify-content: left;
+    margin-left: 9rem;
+    background-color: rgba(255, 255, 255, 0.307);
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 22rem;
+    border: none;
+}
+
+#input-pesquisa {
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 20rem;
+    background: none;
+    border: none;
+    color: white;
+}
+
+#input-pesquisa::placeholder {
+    color: rgba(0, 0, 0, 0.485);
+}
+
+#barra-pesquisa img {
+    height: 1.5rem;
+    padding: 0.5rem;
+}
+
+#btn-reload {
+    display: none;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    height: 1.5rem;
+}
+
+#home-content {
+    border-radius: 2rem;
+    display: flex;
+    margin-left: 17rem;
+    padding: 2.5rem;
+}
+
+#home-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    padding-top: 1rem;
+    margin-left: 1.6rem;
+}
+
+#user-bar {
+    display: flex;
+    justify-content: right;
+    background-color: transparent;
+    background-image: linear-gradient(180deg, rgb(20, 24, 28) 0, rgba(20, 24, 28, .945) 16.56%, rgba(20, 24, 28, .802) 30.85%, rgba(20, 24, 28, .606) 43.77%, rgba(20, 24, 28, .394) 56.23%, rgba(20, 24, 28, .198) 69.15%, rgba(20, 24, 28, .055) 83.44%, rgba(20, 24, 28, 0));
+    background-repeat: repeat-x;
+    padding: 2rem;
+    height: 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#user-img {
+    padding-right: 1.2rem;
+    height: 3.5rem;
+}
+
+#username {
+    margin-top: 0.8rem;
+    margin-right: 5rem;
+    font-size: 1.2rem;
+}
+
+#playlist-container {
+    padding: 2rem;
+    width: 30rem;
+    display: none;
+}
+
+#musics-container {
+    margin-left: 7rem;
+}
+
+#playlist-container {
+    background-color: rgb(25, 26, 31);
+    box-shadow:rgba(0, 0, 0, 0.256) 4px 3px 3px -1px, rgba(24, 27, 34, 0.19) 2px 3px 5px -5px;
+    border-radius: 1rem;
+}
+
+#grid-musics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.2rem;
+}
+
+.music {
+    display: inline-grid;
+    width: 12rem;
+    height: 16rem;
+    text-align: center;
+    padding: 0.5rem;
+    transition: 0.4s;
+    font-size: 0.9rem;
+    box-shadow:rgba(0, 0, 0, 0.256) 4px 3px 3px -1px, rgba(24, 27, 34, 0.19) 2px 3px 5px -5px;
+    border-radius: 1rem;
+}
+
+.music-default {
+    background-color: rgb(25, 26, 31);
+}
+
+.music-default:hover {
+    background-color: rgba(255, 31, 192, 0.775);
+    transform: scale(1.05); 
+}
+
+.music-selected {
+    background-color: rgba(255, 31, 192, 0.775);
+}
+
+.mnome {
+    font-weight: bold;
+}
+
+.mcantor, .mduracao {
+    opacity: 0.5;
+}
+
+.mcapa {
+    height: 8rem;
+    padding-inline: 2rem;
+}
+
+.mnome-duracao {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mduracao {
+    margin-left: 1rem;
+    float: left;
+}
+
+#nome-playlist {
+    margin-left: 2rem;
+    width: 17rem;
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+}
+
+#playlist-duracao {
+    margin-left: 2rem;
+    padding-top: 0.5rem;
+    opacity: 0.5;
+}
+
+#btn-play {
+    font-size: 1.8rem;
+    border-radius: 5rem;
+    border: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 2rem;
+}
+
+#btn-play.playable {
+    background-color: rgb(145, 65, 206);
+    opacity: 1;
+}
+
+#btn-play.playable:hover {
+    transform: scale(1.1); 
+}
+
+#btn-play.non-playable {
+    background-color: rgb(137, 137, 137);
+    opacity: 0.5;
+}
+
+#btn-play.non-playable:hover {
+    transform: scale(1.0); 
+}
+
+.selected-music {
+    display: flex;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    height: 4rem;
+    background-color: rgba(192, 210, 255, 0.02);
+    border-radius: 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.207) 4px 3px 3px -1px, rgba(24, 27, 34, 0.125) 2px 3px 5px -5px;
+    transition: 0.4s;
+}
+
+.selected-capa {
+    height: 4.2rem;
+}
+
+.delete-icon {
+    height: 1.5rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    float: right;
+    opacity: 0.3;
+    transition: 0.2s;
+}
+
+.delete-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.selected-nome-duracao {
+    display: flex;
+    justify-content: space-between;
+    width: 17rem;
+}
+
+.playlist-info {
+    margin-left: 1.5rem;
+}
+
+/* Nome da música */
+.playlist-info h4 {
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+
+/* Artista e duração */
+.playlist-info p, .selected-duration {
+    opacity: 0.5;
+}
+
+.selected-music:hover {
+    transform: scale(1.05);
+}
+
+#btn-adicionar {
+    display: none;
+    background-color: rgb(145, 65, 206);
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 2rem;
+    border: none;
+    font-size: 2rem;
+    font-weight: thin;
+    margin-right: 1rem;
+}
+
+#btn-concluir, #btn-logout, #btn-newplaylist, #btn-salvar-playlist, #btn-limpar {
+    height: 3rem;
+    width: 6rem;
+    margin-top: 0.3rem;
+    margin-right: 1.2rem;
+    border-radius: 2rem;
+    border: none;
+    font-size: 1rem;
+    color:black;
+    text-shadow: none;
+    background-color: white;
+    font-weight: bold;
+}
+
+#btn-limpar {
+    display: none;
+    margin-top: 2rem;
+    background-color: rgb(145, 65, 206);
+}
+
+#btn-pesquisar {
+    display: none;
+    border-radius: 2rem;
+    border: none;
+    padding-inline: 0.8rem;
+    margin-left: 1rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(151, 151, 151);
+    opacity: 0.5;
+    font-size: 0.89rem;
+    font-weight: bold;
+}
+
+#btn-pesquisar:hover {
+    opacity: 1;
+}
+
+#btn-newplaylist {
+    margin: 5rem;
+    margin-right: 16rem;
+    height: 3.8rem;
+    width: 13rem;
+    background-color: rgb(145, 65, 206);
+}
+
+#btn-newplaylist:hover {
+    color: white;
+}
+
+.hidden, .btn-selecao {
+    display: none;
+}
+
+.btn-selecao {
+    appearance: none;
+    border-radius: 4rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    background: transparent;
+    border: 0.15rem solid white;
+    font-size: 1;
+}
