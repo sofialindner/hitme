@@ -6,6 +6,7 @@ let editedIndex = null;
 function playStop() {
     let btnPlay = document.getElementById("btn-play");
 
+    // Permite "tocar" playlist se houver músicas e a playlist estiver no modo de visualização (salva)
     if (!document.getElementById("playlist-musics").innerHTML == "" &&
          document.getElementById("btn-salvar-playlist").innerText == "Editar") {
         if (btnPlay.innerText == "| |") {
@@ -35,6 +36,7 @@ function searchMusicArtist() {
                 console.log(m);
                 results.push(m);
             } else {
+                // Esconde divs (músicas) cujos nome e artista não atendam à pesquisa 
                 m.style.display = "none";
             }
         }
@@ -49,6 +51,7 @@ function newPlaylist() {
     let btnNewPlaylist = document.getElementById("btn-newplaylist");
     let btnSavePlaylist = document.getElementById("btn-salvar-playlist");
 
+    // Exibe container da playlist e botões de manipulação
     container.setAttribute("style", "display: inline-block");
     btnAdd.setAttribute("style", "display: inline");
     btnNewPlaylist.setAttribute("style", "display: none");
@@ -64,7 +67,7 @@ function addMusics() {
 function show() {
     let selectButtons = document.getElementsByClassName("btn-selecao");
 
-    // Mostra elementos hidden
+    // Mostra elementos hidden, exclusivos do modo de seleção
     for (const e of hiddenElements) {
         e.setAttribute("style", "display: inline");
     }
@@ -129,10 +132,12 @@ function calculateDuration() {
         let duration = music.getElementsByClassName("selected-duration")[0].innerText;
         duration = duration.split(":");
 
+        // Separa a string e guarda os minutos e segundos como inteiros
         let minutes = parseInt(duration[0]);
         seconds += parseInt(duration[1]);
         minutesSum += minutes;
 
+        // Quando a variável de segundos (somada entre uma música e outra) atingir ou tornar-se superior a 60, minutos são incrementados
         if (seconds == 60) {
             minutesSum ++;
             seconds = 0;
@@ -153,6 +158,7 @@ function savePlaylist() {
     let namePlaylist = document.getElementById("nome-playlist").value;
     let durationPlaylist = document.getElementById("playlist-duracao").innerText;
 
+    // Verifica se já existe playlist com o nome em questão (se for uma edição, não entra na condição)
     if (findPlaylist() != null && findPlaylist() != editedIndex) {
         alert("Desculpe, já existe uma playlist com esse nome.");
         return false;
@@ -209,7 +215,7 @@ function saveOrEdit(event) {
             }
         }
     } else {
-        // Índice da playlist a ser editada é guardada na variável global temporariamente
+        // Índice da playlist a ser editada é guardada na variável global temporariamente, até o fim da edição
         editedIndex = findPlaylist();
 
         // Torna a playlist editável
@@ -233,6 +239,7 @@ function findPlaylist() {
     let allPlaylists = JSON.parse(localStorage.getItem("allPlaylists"));
     let indexPlaylist = null;
 
+    // Compara o nome da input com os nomes das playlists já cadastradas (playlist[0])
     for (let i = 0; i < allPlaylists.length; i++) {
         let playlist = JSON.parse(allPlaylists[i]);
         if (playlist[0] == currentPlaylist) {
@@ -240,7 +247,7 @@ function findPlaylist() {
         }
     }
     console.log(indexPlaylist);
-    return indexPlaylist;
+    return indexPlaylist; // se o nome não existir, retorna null
 }
 
 function deleteMusic(event) {
@@ -425,7 +432,6 @@ function load() {
 
     // Cria o array de playlists do usuário, se ainda não existente
     let playlistStorage = localStorage.getItem("allPlaylists");
-
     if (playlistStorage == null) {
         let allPlaylists = JSON.stringify([]);
         localStorage.setItem("allPlaylists", allPlaylists);
