@@ -44,7 +44,7 @@
         <div style="display:flex">
             <form id="barra-pesquisa">
                 <img onclick="searchMusicArtist()" src="/assets/imgs/search-icon.png" alt="Lupa de pesquisa">
-                <input id="input-pesquisa" type="search" placeholder="Pesquise pela música ou artista">
+                <input id="input-pesquisa" onkeypress="verifyEnter(event)" type="search" placeholder="Pesquise pela música ou artista">
             </form>
             <button id="btn-pesquisar" onclick="searchMusicArtist()">Pesquisar</button>
             <img id="btn-reload" src="/assets/imgs/reload-icon.png" alt="Ícone de reload">

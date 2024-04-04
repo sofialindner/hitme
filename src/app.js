@@ -45,6 +45,19 @@ function searchMusicArtist() {
     }
 }
 
+function verifyEnter(event) {
+    // Verifica o enter no campo de pesquisa
+	if (event.key === "Enter") {
+        let gridMusics = document.getElementById("grid-musics");
+
+        for (const m of gridMusics.getElementsByClassName("music")) {
+            m.setAttribute("style", "");
+        }
+        event.preventDefault();
+        searchMusicArtist();
+	}
+}
+
 function newPlaylist() {
     let container = document.getElementById("playlist-container");
     let btnAdd = document.getElementById("btn-adicionar");
